@@ -12,6 +12,7 @@ public class Order {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment;
     private OrderStatus status;
+    //just for test
 
     @ManyToOne
     @JoinColumn(name="client_id")
