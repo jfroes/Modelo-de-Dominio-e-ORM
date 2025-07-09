@@ -33,4 +33,19 @@ public class ProductService {
         return result.map(product -> new ProductDTO(product));
     }
 
+    @Transactional
+    public ProductDTO insert(ProductDTO dto) {
+
+        Product product = new Product();
+
+        product.setName(dto.getName());
+        product.setDescription(dto.getDescription());
+        product.setPrice(dto.getPrice());
+        product.setImgUrl(dto.getImgUrl());
+
+        product = repository.save(product);
+
+        return new ProductDTO(product);
+    }
+
 }
